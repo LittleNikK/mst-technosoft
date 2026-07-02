@@ -1,8 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const TICKER = "BLOCKCHAIN · BRIDGE KEY · CAIN PAY · RAPIDEX · MST ACEDEMY · ";
 
 export default function Hero() {
+  const [typedLength, setTypedLength] = useState(0);
+  const fullText = "Engineering Tomorrow's Digital Infrastructure";
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      index++;
+      setTypedLength(index);
+      if (index >= fullText.length) {
+        clearInterval(interval);
+      }
+    }, 60);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-white">
 
@@ -77,14 +94,19 @@ export default function Hero() {
 
 
 
-        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-48 min-h-[80vh] flex items-center">
-          <div className="grid lg:grid-cols-[1fr_460px] gap-12 items-center w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 pt-32 pb-16 lg:pt-44 lg:pb-20 min-h-[70vh] flex items-center">
+          <div className="grid lg:grid-cols-[1fr_460px] gap-12 items-center w-full -mt-8 lg:-mt-16">
 
             {/* LEFT — copy + CTAs */}
             <div>
-              <p className="hero-heading text-[34px] md:text-[44px] lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-[-1.5px] max-w-[520px] mb-6">
-                Engineering Tomorrow's Digital
-                <span className="text-red-500"> Infrastructure</span>
+              <p className="hero-heading text-[34px] md:text-[44px] lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-[-1.5px] max-w-[520px] mb-6 min-h-[78px] md:min-h-[100px] lg:min-h-[115px]">
+                {fullText.slice(0, Math.min(typedLength, 31))}
+                {typedLength > 31 && (
+                  <span className="text-red-500">
+                    {fullText.slice(31, typedLength)}
+                  </span>
+                )}
+                {/* <span className="animate-[pulse_1s_infinite] font-light text-red-500 ml-0.5">|</span> */}
               </p>
 
               <p className="body-text text-[15px] text-gray-200 leading-[1.75] max-w-[380px] mb-9">
