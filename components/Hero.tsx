@@ -100,13 +100,7 @@ export default function Hero() {
             {/* LEFT — copy + CTAs */}
             <div>
               <p className="hero-heading text-[34px] md:text-[44px] lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-[-1.5px] max-w-[520px] mb-6 min-h-[78px] md:min-h-[100px] lg:min-h-[115px]">
-                {fullText.slice(0, Math.min(typedLength, 31))}
-                {typedLength > 31 && (
-                  <span className="text-red-500">
-                    {fullText.slice(31, typedLength)}
-                  </span>
-                )}
-                {/* <span className="animate-[pulse_1s_infinite] font-light text-red-500 ml-0.5">|</span> */}
+                Engineering Tomorrow's Digital Infrastructure
               </p>
 
               <p className="body-text text-[15px] text-gray-200 leading-[1.75] max-w-[380px] mb-9">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Link as LinkIcon, X as TwitterIcon, Send, Video, GitBranch, ArrowUpRight } from "lucide-react";
 
 const companyLinks = [
     { label: "About", href: "#about" },
@@ -17,38 +18,53 @@ const ecosystemLinks = [
     { label: "Developer Resources", href: "#" },
 ];
 
-const communityLinks = [
-    { label: "LinkedIn", href: "#" },
-    { label: "X (Twitter)", href: "#" },
-    { label: "Telegram", href: "#" },
-    { label: "YouTube", href: "#" },
-    { label: "GitHub", href: "#" },
+const socialLinks = [
+    { label: "LinkedIn", href: "#", icon: LinkIcon },
+    { label: "X (Twitter)", href: "#", icon: TwitterIcon },
+    { label: "Telegram", href: "#", icon: Send },
+    { label: "YouTube", href: "#", icon: Video },
+    { label: "GitHub", href: "#", icon: GitBranch },
 ];
 
 export default function Footer() {
     return (
-        <footer className="bg-black border-t border-white/[0.06]">
-            <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <footer
+            className="relative bg-black border-t border-white/[0.06] overflow-hidden"
+            style={{
+                backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/bg1.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+            }}
+        >
+
+            {/* ── Background signature: oversized logo bleeding off the left edge ── */}
+            <img
+                src="/mst-logo.png"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute left-1/2 bottom-0 transform -translate-x-1/2 h-full w-auto object-contain opacity-[0.0]"
+                style={{ filter: "grayscale(1) brightness(1.6)" }}
+            />
+            {/* soft red glow anchored behind the mark */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-red-700/[0.08] blur-[110px]"
+            />
+
+            <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
 
                 {/* ── Main row ── */}
-                <div className="grid lg:grid-cols-[1fr_auto_auto_auto] gap-12 lg:gap-20 py-14 border-b border-white/[0.06]">
+                <div className="grid lg:grid-cols-[3.5fr_1fr_1fr_1fr] gap-12 lg:gap-16 pt-16 pb-0 border-b border-white/[0.06]">
 
                     {/* Brand */}
-                    <div>
-                        <Link href="/" className="flex items-center gap-3 mb-5">
+                    <div className="max-w-sm">
+                        <Link href="/" className="inline-block">
                             <img
                                 src="/mst-logo.png"
                                 alt="Masterstroke Logo"
-                                className="h-12 w-auto object-contain shrink-0"
+                                className="w-full max-w-[280px] h-auto object-contain"
                             />
-                            <div className="leading-none">
-                                <p className="section-heading text-[13px] font-bold text-white tracking-[0.05em]">MASTERSTROKE</p>
-                                <p className="body-text text-[9px] tracking-[0.28em] text-gray-600 mt-0.5">TECHNOSOFT</p>
-                            </div>
                         </Link>
-                        <p className="body-text text-[13px] text-gray-500 leading-[1.7] max-w-[220px]">
-                            Building the Future of Decentralized Innovation.
-                        </p>
                     </div>
 
                     {/* Company */}
@@ -95,7 +111,7 @@ export default function Footer() {
                             Community
                         </p>
                         <ul className="space-y-3">
-                            {communityLinks.map((l) => (
+                            {socialLinks.map((l) => (
                                 <li key={l.label}>
                                     <Link
                                         href={l.href}
@@ -110,8 +126,22 @@ export default function Footer() {
 
                 </div>
 
+                {/* Stretched Social Icons */}
+                <div className="flex items-center justify-between w-full py-3 border-b border-white/[0.06]">
+                    {socialLinks.map(({ label, href, icon: Icon }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            aria-label={label}
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/[0.08] text-gray-500 hover:text-white hover:border-red-600/60 hover:bg-red-600/[0.08] transition-colors duration-150"
+                        >
+                            <Icon size={20} strokeWidth={1.8} />
+                        </Link>
+                    ))}
+                </div>
+
                 {/* ── Bottom bar ── */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6">
+                <div className="relative flex flex-col sm:flex-row items-center justify-between gap-3 py-6">
                     <p className="body-text text-[12px] text-gray-600">
                         © {new Date().getFullYear()} Masterstroke Technosoft Pvt. Ltd. All rights reserved.
                     </p>

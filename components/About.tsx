@@ -20,179 +20,179 @@ const highlights = [
 export default function About() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+    // useEffect(() => {
+    //     const canvas = canvasRef.current;
+    //     if (!canvas) return;
 
-        const parent = canvas.parentElement;
-        if (!parent) return;
+    //     const parent = canvas.parentElement;
+    //     if (!parent) return;
 
-        let width = parent.offsetWidth;
-        let height = parent.offsetHeight;
+    //     let width = parent.offsetWidth;
+    //     let height = parent.offsetHeight;
 
-        const resizeCanvas = () => {
-            width = parent.offsetWidth;
-            height = parent.offsetHeight;
-            canvas.width = width;
-            canvas.height = height;
-        };
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
+    //     const resizeCanvas = () => {
+    //         width = parent.offsetWidth;
+    //         height = parent.offsetHeight;
+    //         canvas.width = width;
+    //         canvas.height = height;
+    //     };
+    //     resizeCanvas();
+    //     window.addEventListener("resize", resizeCanvas);
 
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+    //     const ctx = canvas.getContext("2d");
+    //     if (!ctx) return;
 
-        const colorPalette = [
-            ["#00ffff", "#ff0000"],
-            ["#00ff00", "#ff00ff"],
-            ["#0000ff", "#ffff00"]
-        ];
+    //     const colorPalette = [
+    //         ["#00ffff", "#ff0000"],
+    //         ["#00ff00", "#ff00ff"],
+    //         ["#0000ff", "#ffff00"]
+    //     ];
 
-        let globalColorsIndex = 0;
+    //     let globalColorsIndex = 0;
 
-        class CanvasShape {
-            index: number;
-            type: 'rect' | 'circle';
-            progress: number;
-            duration!: number;
-            delay!: number;
-            x!: number;
-            y!: number;
-            xStart!: number;
-            yStart!: number;
-            xEnd!: number;
-            yEnd!: number;
-            rotation!: number;
-            rotationEnd!: number;
-            scale!: number;
-            scaleEnd!: number;
-            colorsIndex: number;
-            offsetA: { x: number; y: number };
-            offsetB: { x: number; y: number };
+    //     class CanvasShape {
+    //         index: number;
+    //         type: 'rect' | 'circle';
+    //         progress: number;
+    //         duration!: number;
+    //         delay!: number;
+    //         x!: number;
+    //         y!: number;
+    //         xStart!: number;
+    //         yStart!: number;
+    //         xEnd!: number;
+    //         yEnd!: number;
+    //         rotation!: number;
+    //         rotationEnd!: number;
+    //         scale!: number;
+    //         scaleEnd!: number;
+    //         colorsIndex: number;
+    //         offsetA: { x: number; y: number };
+    //         offsetB: { x: number; y: number };
 
-            constructor(index: number, colorsIndex: number) {
-                this.index = index;
-                this.type = index % 2 === 1 ? 'rect' : 'circle';
-                this.colorsIndex = colorsIndex;
-                this.progress = 0;
-                const maxOffset = 50;
-                this.offsetA = { x: Math.random() * maxOffset, y: Math.random() * maxOffset };
-                this.offsetB = { x: Math.random() * maxOffset, y: Math.random() * maxOffset };
-                this.reset();
-            }
+    //         constructor(index: number, colorsIndex: number) {
+    //             this.index = index;
+    //             this.type = index % 2 === 1 ? 'rect' : 'circle';
+    //             this.colorsIndex = colorsIndex;
+    //             this.progress = 0;
+    //             const maxOffset = 50;
+    //             this.offsetA = { x: Math.random() * maxOffset, y: Math.random() * maxOffset };
+    //             this.offsetB = { x: Math.random() * maxOffset, y: Math.random() * maxOffset };
+    //             this.reset();
+    //         }
 
-            reset() {
-                this.progress = 0;
-                this.delay = Math.floor(this.index * 6);
-                this.duration = Math.floor((2 + Math.random() * 4) * 60);
-                this.x = width / 2;
-                this.y = height / 2;
-                this.xStart = width / 2;
-                this.yStart = height / 2;
+    //         reset() {
+    //             this.progress = 0;
+    //             this.delay = Math.floor(this.index * 6);
+    //             this.duration = Math.floor((2 + Math.random() * 4) * 60);
+    //             this.x = width / 2;
+    //             this.y = height / 2;
+    //             this.xStart = width / 2;
+    //             this.yStart = height / 2;
 
-                const angle = Math.random() * 2 * Math.PI;
-                const distance = Math.max(width, height) + 150;
-                this.xEnd = width / 2 + Math.cos(angle) * distance;
-                this.yEnd = height / 2 + Math.sin(angle) * distance;
+    //             const angle = Math.random() * 2 * Math.PI;
+    //             const distance = Math.max(width, height) + 150;
+    //             this.xEnd = width / 2 + Math.cos(angle) * distance;
+    //             this.yEnd = height / 2 + Math.sin(angle) * distance;
 
-                this.rotation = 0;
-                this.rotationEnd = (Math.random() * 2 - 1) * 2 * Math.PI;
+    //             this.rotation = 0;
+    //             this.rotationEnd = (Math.random() * 2 - 1) * 2 * Math.PI;
 
-                this.scale = 0;
-                this.scaleEnd = 0.5 + Math.random() * 0.75;
-            }
+    //             this.scale = 0;
+    //             this.scaleEnd = 0.5 + Math.random() * 0.75;
+    //         }
 
-            cycleColors() {
-                this.colorsIndex = (this.colorsIndex + 1) % colorPalette.length;
-            }
+    //         cycleColors() {
+    //             this.colorsIndex = (this.colorsIndex + 1) % colorPalette.length;
+    //         }
 
-            update() {
-                if (this.delay > 0) {
-                    this.delay--;
-                    return;
-                }
+    //         update() {
+    //             if (this.delay > 0) {
+    //                 this.delay--;
+    //                 return;
+    //             }
 
-                this.progress += 1 / this.duration;
-                if (this.progress >= 1) {
-                    this.reset();
-                    return;
-                }
+    //             this.progress += 1 / this.duration;
+    //             if (this.progress >= 1) {
+    //                 this.reset();
+    //                 return;
+    //             }
 
-                const t = this.progress;
-                this.x = this.xStart + (this.xEnd - this.xStart) * t;
-                this.y = this.yStart + (this.yEnd - this.yStart) * t;
-                this.rotation = this.rotationEnd * t;
-                this.scale = this.scaleEnd * t;
-            }
+    //             const t = this.progress;
+    //             this.x = this.xStart + (this.xEnd - this.xStart) * t;
+    //             this.y = this.yStart + (this.yEnd - this.yStart) * t;
+    //             this.rotation = this.rotationEnd * t;
+    //             this.scale = this.scaleEnd * t;
+    //         }
 
-            draw(c: CanvasRenderingContext2D) {
-                if (this.delay > 0 && this.progress === 0) return;
+    //         draw(c: CanvasRenderingContext2D) {
+    //             if (this.delay > 0 && this.progress === 0) return;
 
-                c.save();
-                c.translate(this.x, this.y);
-                c.rotate(this.rotation);
-                c.scale(this.scale, this.scale);
+    //             c.save();
+    //             c.translate(this.x, this.y);
+    //             c.rotate(this.rotation);
+    //             c.scale(this.scale, this.scale);
 
-                c.globalCompositeOperation = 'multiply';
+    //             c.globalCompositeOperation = 'multiply';
 
-                const colors = colorPalette[this.colorsIndex];
+    //             const colors = colorPalette[this.colorsIndex];
 
-                if (this.type === 'rect') {
-                    c.fillStyle = colors[0];
-                    c.fillRect(this.offsetA.x - 30, this.offsetA.y - 30, 60, 60);
+    //             if (this.type === 'rect') {
+    //                 c.fillStyle = colors[0];
+    //                 c.fillRect(this.offsetA.x - 30, this.offsetA.y - 30, 60, 60);
 
-                    c.fillStyle = colors[1];
-                    c.fillRect(this.offsetB.x - 30, this.offsetB.y - 30, 60, 60);
-                } else {
-                    c.fillStyle = colors[0];
-                    c.beginPath();
-                    c.arc(this.offsetA.x, this.offsetA.y, 30, 0, 2 * Math.PI);
-                    c.fill();
+    //                 c.fillStyle = colors[1];
+    //                 c.fillRect(this.offsetB.x - 30, this.offsetB.y - 30, 60, 60);
+    //             } else {
+    //                 c.fillStyle = colors[0];
+    //                 c.beginPath();
+    //                 c.arc(this.offsetA.x, this.offsetA.y, 30, 0, 2 * Math.PI);
+    //                 c.fill();
 
-                    c.fillStyle = colors[1];
-                    c.beginPath();
-                    c.arc(this.offsetB.x, this.offsetB.y, 30, 0, 2 * Math.PI);
-                    c.fill();
-                }
+    //                 c.fillStyle = colors[1];
+    //                 c.beginPath();
+    //                 c.arc(this.offsetB.x, this.offsetB.y, 30, 0, 2 * Math.PI);
+    //                 c.fill();
+    //             }
 
-                c.restore();
-            }
-        }
+    //             c.restore();
+    //         }
+    //     }
 
-        const totalGroups = 50;
-        const shapes: CanvasShape[] = [];
-        for (let i = 0; i < totalGroups; i++) {
-            shapes.push(new CanvasShape(i, globalColorsIndex));
-        }
+    //     const totalGroups = 50;
+    //     const shapes: CanvasShape[] = [];
+    //     for (let i = 0; i < totalGroups; i++) {
+    //         shapes.push(new CanvasShape(i, globalColorsIndex));
+    //     }
 
-        const handleInteraction = () => {
-            globalColorsIndex = (globalColorsIndex + 1) % colorPalette.length;
-            shapes.forEach(s => s.cycleColors());
-        };
+    //     const handleInteraction = () => {
+    //         globalColorsIndex = (globalColorsIndex + 1) % colorPalette.length;
+    //         shapes.forEach(s => s.cycleColors());
+    //     };
 
-        window.addEventListener("click", handleInteraction);
-        window.addEventListener("touchstart", handleInteraction);
+    //     window.addEventListener("click", handleInteraction);
+    //     window.addEventListener("touchstart", handleInteraction);
 
-        let animationFrameId: number;
-        const animate = () => {
-            ctx.clearRect(0, 0, width, height);
+    //     let animationFrameId: number;
+    //     const animate = () => {
+    //         ctx.clearRect(0, 0, width, height);
 
-            shapes.forEach(s => {
-                s.update();
-                s.draw(ctx);
-            });
+    //         shapes.forEach(s => {
+    //             s.update();
+    //             s.draw(ctx);
+    //         });
 
-            animationFrameId = requestAnimationFrame(animate);
-        };
-        animate();
+    //         animationFrameId = requestAnimationFrame(animate);
+    //     };
+    //     animate();
 
-        return () => {
-            window.removeEventListener("resize", resizeCanvas);
-            window.removeEventListener("click", handleInteraction);
-            window.removeEventListener("touchstart", handleInteraction);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("resize", resizeCanvas);
+    //         window.removeEventListener("click", handleInteraction);
+    //         window.removeEventListener("touchstart", handleInteraction);
+    //         cancelAnimationFrame(animationFrameId);
+    //     };
+    // }, []);
 
     return (
         <section id="about" className="relative bg-white overflow-hidden">
@@ -202,19 +202,10 @@ export default function About() {
 
                 {/* LEFT — dark half, flush to edge */}
                 <div className="relative bg-[#0d0d0d] flex flex-col justify-between px-12 lg:px-16 py-16 overflow-hidden">
-                    {/* Background Video */}
-                    <video
-                        src="/Snow-Fall.mp4"
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                    />
 
                     {/* Red ambient light — top right bleeds toward the center seam */}
-                    <div className="absolute top-0 right-0 w-[380px] h-[380px] rounded-full bg-red-600 blur-[140px] opacity-20 pointer-events-none z-10" />
-                    <div className="absolute bottom-0 left-0 w-[260px] h-[260px] rounded-full bg-red-900 blur-[120px] opacity-15 pointer-events-none z-10" />
+                    {/* <div className="absolute top-0 right-0 w-[380px] h-[380px] rounded-full bg-red-600 blur-[140px] opacity-20 pointer-events-none z-10" />
+                    <div className="absolute bottom-0 left-0 w-[260px] h-[260px] rounded-full bg-red-900 blur-[120px] opacity-15 pointer-events-none z-10" /> */}
 
                     {/* Eyebrow */}
                     <div className="relative z-20">
