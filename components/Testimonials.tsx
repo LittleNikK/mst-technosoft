@@ -190,22 +190,22 @@ export default function Testimonials() {
     const t = testimonials[active];
 
     return (
-        <section id="testimonials" className="bg-[#F8F8F8] border-t border-gray-100 py-24 lg:py-32 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <section id="testimonials" className="bg-[#F8F8F8] border-t border-gray-100 py-16 sm:py-24 lg:py-32 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 {/* ── Header ── */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-16">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-6 mb-12 lg:mb-16">
                     <div>
-                        <div className="inline-flex items-center gap-2 mb-5">
+                        <div className="inline-flex items-center gap-2 mb-4 lg:mb-5">
 
                         </div>
-                        <h2 className="section-heading text-[44px] md:text-[52px] font-extrabold text-black leading-[1.05] tracking-[-1px]">
+                        <h2 className="section-heading text-[36px] sm:text-[44px] md:text-[52px] font-extrabold text-black leading-[1.1] lg:leading-[1.05] tracking-[-1px]">
                             Trusted by teams
                             <br />
                             <span className="text-red-500">who ship.</span>
                         </h2>
                     </div>
-                    <p className="body-text text-[15px] text-gray-400 leading-[1.7] max-w-[300px] lg:text-right">
+                    <p className="body-text text-[14px] sm:text-[15px] text-gray-500 leading-[1.6] lg:leading-[1.7] max-w-[100%] sm:max-w-[300px] text-left lg:text-right">
                         Scroll through what our clients say  click any card to read it in full.
                     </p>
                 </div>
@@ -216,14 +216,14 @@ export default function Testimonials() {
 
                         {/* Quote */}
                         <div
-                            className="p-10 lg:p-12 transition-opacity duration-200"
+                            className="p-6 sm:p-10 lg:p-12 transition-opacity duration-200"
                             style={{ opacity: visible ? 1 : 0 }}
                         >
-                            <span className="block text-[80px] text-red-500 font-serif leading-none -mb-2 select-none">"</span>
-                            <p className="body-text text-[20px] md:text-[24px] font-semibold text-white leading-[1.5] tracking-[-0.2px] max-w-2xl">
+                            <span className="block text-[60px] sm:text-[80px] text-red-500 font-serif leading-none -mb-4 sm:-mb-2 select-none">"</span>
+                            <p className="body-text text-[18px] sm:text-[20px] md:text-[24px] font-semibold text-white leading-[1.6] sm:leading-[1.5] tracking-[-0.2px] max-w-2xl">
                                 {t.quote}
                             </p>
-                            <div className="flex items-center gap-3 mt-8">
+                            <div className="flex flex-wrap items-center gap-3 mt-6 sm:mt-8">
                                 <div className="w-10 h-10 rounded-full bg-red-500 text-white text-[12px] font-bold flex items-center justify-center shrink-0">
                                     {t.initials}
                                 </div>
@@ -231,14 +231,14 @@ export default function Testimonials() {
                                     <p className="body-text text-[14px] font-semibold text-white leading-none">{t.name}</p>
                                     <p className="body-text text-[12px] text-gray-500 mt-1">{t.role}, {t.company}</p>
                                 </div>
-                                <span className="body-text ml-4 text-[11px] font-semibold text-gray-600 border border-gray-700 px-3 py-1 rounded-full">
+                                <span className="body-text ml-auto sm:ml-4 text-[11px] font-semibold text-gray-400 border border-gray-700 px-3 py-1 rounded-full shrink-0">
                                     {t.tag}
                                 </span>
                             </div>
                         </div>
 
                         {/* Stat block */}
-                        <div className="border-l border-white/[0.06] px-10 py-12 flex flex-col justify-center items-center gap-1 min-w-[180px]">
+                        <div className="border-t lg:border-t-0 lg:border-l border-white/[0.06] px-6 py-8 sm:px-10 sm:py-12 flex flex-col justify-center items-center gap-1 min-w-[180px]">
                             <p className="section-heading text-[52px] font-extrabold text-white leading-none tracking-tight">
                                 100<span className="text-red-500">%</span>
                             </p>

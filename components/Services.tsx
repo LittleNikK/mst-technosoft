@@ -38,25 +38,25 @@ const services = [
 
 export default function Services() {
     return (
-        <section id="services" className="py-24 lg:py-32 bg-[#111111]">
-            <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <section id="services" className="py-16 sm:py-24 lg:py-32 bg-[#111111]">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
                     <div>
-                        <div className="inline-flex items-center gap-2 mb-5">
+                        <div className="inline-flex items-center gap-2 mb-4 lg:mb-5">
                             {/* <span className="w-1.5 h-1.5 rounded-full bg-red-500" /> */}
                             <span className="body-text text-[11px] font-bold tracking-[0.2em] text-red-500 uppercase">
                                 OUR TECHNOLOGY
                             </span>
                         </div>
-                        <h2 className="section-heading text-[44px] md:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-1px]">
+                        <h2 className="section-heading text-[36px] sm:text-[44px] md:text-[52px] font-extrabold text-white leading-[1.1] lg:leading-[1.05] tracking-[-1px]">
                             Technologies Powering The
                             <br />
                             <span className="text-red-500">MST Ecosystem.</span>
                         </h2>
                     </div>
-                    <p className="body-text text-[15px] text-gray-400 leading-[1.7] max-w-[460px] text-left lg:mb-1">
+                    <p className="body-text text-[14px] sm:text-[15px] text-gray-400 leading-[1.6] lg:leading-[1.7] max-w-[100%] sm:max-w-[460px] text-left lg:mb-1">
                         Masterstroke develops blockchain infrastructure that enables secure transactions, decentralized governance, enterprise integration, and digital asset innovation across modern industries.
                     </p>
                 </div>
@@ -104,13 +104,13 @@ export default function Services() {
                 </div>
 
                 {/* Footer CTA */}
-                <div className="mt-12 flex items-center justify-between">
-                    <p className="body-text text-[13px] text-gray-600">
+                <div className="mt-10 lg:mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <p className="body-text text-[13px] text-gray-600 max-w-[100%] sm:max-w-[60%]">
                         Designed to provide the complete infrastructure required for the next generation of decentralized applications.
                     </p>
                     <a
                         href="#contact"
-                        className="cta-button inline-flex items-center gap-2 text-[13px] font-semibold text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded-full transition-colors duration-200"
+                        className="cta-button inline-flex shrink-0 items-center gap-2 text-[13px] font-semibold text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded-full transition-colors duration-200"
                     >
                         Explore Technology →
                         <ArrowUpRight size={13} />

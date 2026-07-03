@@ -51,13 +51,13 @@ export default function Footer() {
                 className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-red-700/[0.08] blur-[110px]"
             />
 
-            <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+            <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 {/* ── Main row ── */}
-                <div className="grid lg:grid-cols-[3.5fr_1fr_1fr_1fr] gap-12 lg:gap-16 pt-16 pb-0 border-b border-white/[0.06]">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[3.5fr_1fr_1fr_1fr] gap-10 lg:gap-16 pt-12 lg:pt-16 pb-10 lg:pb-0 border-b border-white/[0.06]">
 
                     {/* Brand */}
-                    <div className="max-w-sm">
+                    <div className="max-w-sm col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
                         <Link href="/" className="inline-block">
                             <img
                                 src="/mst-logo.png"
@@ -127,22 +127,22 @@ export default function Footer() {
                 </div>
 
                 {/* Stretched Social Icons */}
-                <div className="flex items-center justify-between w-full py-3 border-b border-white/[0.06]">
+                <div className="flex flex-wrap items-center justify-center sm:justify-between gap-4 w-full py-5 sm:py-3 border-b border-white/[0.06]">
                     {socialLinks.map(({ label, href, icon: Icon }) => (
                         <Link
                             key={label}
                             href={href}
                             aria-label={label}
-                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/[0.08] text-gray-500 hover:text-white hover:border-red-600/60 hover:bg-red-600/[0.08] transition-colors duration-150"
+                            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/[0.08] text-gray-500 hover:text-white hover:border-red-600/60 hover:bg-red-600/[0.08] transition-colors duration-150"
                         >
-                            <Icon size={20} strokeWidth={1.8} />
+                            <Icon size={18} strokeWidth={1.8} className="sm:w-[20px] sm:h-[20px]" />
                         </Link>
                     ))}
                 </div>
 
                 {/* ── Bottom bar ── */}
-                <div className="relative flex flex-col sm:flex-row items-center justify-between gap-3 py-6">
-                    <p className="body-text text-[12px] text-gray-600">
+                <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-3 py-6">
+                    <p className="body-text text-[12px] text-gray-600 text-center sm:text-left">
                         © {new Date().getFullYear()} Masterstroke Technosoft Pvt. Ltd. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4">

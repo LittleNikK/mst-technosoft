@@ -95,19 +95,19 @@ export default function Hero() {
 
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 pt-32 pb-16 lg:pt-44 lg:pb-20 min-h-[70vh] flex items-center">
-          <div className="grid lg:grid-cols-[1fr_460px] gap-12 items-center w-full -mt-8 lg:-mt-16">
+          <div className="grid lg:grid-cols-[1fr_460px] gap-8 lg:gap-12 items-center w-full -mt-4 sm:-mt-8 lg:-mt-16 text-center lg:text-left">
 
             {/* LEFT — copy + CTAs */}
-            <div>
-              <p className="hero-heading text-[34px] md:text-[44px] lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-[-1.5px] max-w-[520px] mb-6 min-h-[78px] md:min-h-[100px] lg:min-h-[115px]">
+            <div className="flex flex-col items-center lg:items-start px-4 sm:px-0">
+              <p className="hero-heading text-[32px] sm:text-[36px] md:text-[44px] lg:text-[50px] font-extrabold text-white leading-[1.2] lg:leading-[1.15] tracking-[-1px] lg:tracking-[-1.5px] max-w-[100%] sm:max-w-[520px] mb-5 lg:mb-6 min-h-[auto] md:min-h-[100px] lg:min-h-[115px] mx-auto lg:mx-0">
                 Engineering Tomorrow's Digital Infrastructure
               </p>
 
-              <p className="body-text text-[15px] text-gray-200 leading-[1.75] max-w-[380px] mb-9">
+              <p className="body-text text-[14px] sm:text-[15px] text-gray-200 leading-[1.6] lg:leading-[1.75] max-w-[100%] sm:max-w-[380px] mb-8 lg:mb-9 mx-auto lg:mx-0 px-2 sm:px-0">
                 Masterstroke Technosoft Pvt. Ltd. is a technology company focused on building scalable digital infrastructure. We combine modern software engineering with emerging technologies to create solutions that are secure, intelligent, and ready for the future.
               </p>
 
-              <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex items-center justify-center lg:justify-start gap-4 flex-wrap w-full sm:w-auto">
                 <a href="#services" className="animated-button1">
                   <span></span>
                   <span></span>

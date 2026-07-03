@@ -366,27 +366,27 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="relative py-24 lg:py-32 overflow-hidden isolate">
+        <section id="contact" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden isolate">
             <div className="absolute inset-0 bg-[#fafafa] z-[-2] pointer-events-none" />
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[-1] opacity-60 pointer-events-none" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 {/* ── 2-col layout ── */}
-                <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-start">
+                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 items-start">
 
                     {/* ══ LEFT ══ */}
                     <div>
 
 
                         {/* Heading */}
-                        <h2 className="section-heading text-[52px] md:text-[62px] font-extrabold text-black leading-[0.95] tracking-[-2px] mb-6">
+                        <h2 className="section-heading text-[42px] sm:text-[52px] md:text-[62px] font-extrabold text-black leading-[1.05] sm:leading-[0.95] tracking-[-1px] sm:tracking-[-2px] mb-4 sm:mb-6">
                             Start Building
                             <br />
                             <span className="text-red-500">OnFuture.</span>
                         </h2>
 
-                        <p className="body-text text-[15px] text-gray-500 leading-[1.7] max-w-[360px] mb-12">
+                        <p className="body-text text-[14px] sm:text-[15px] text-gray-500 leading-[1.6] sm:leading-[1.7] max-w-[100%] sm:max-w-[360px] mb-8 sm:mb-12">
                             Whether you're a developer exploring blockchain technology, an enterprise evaluating decentralized infrastructure, or an organization seeking strategic collaboration, our team is ready to connect
                         </p>
 
@@ -426,7 +426,7 @@ export default function Contact() {
                     </div>
 
                     {/* ══ RIGHT — form ══ */}
-                    <div id="contact-form-card" className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-2xl relative z-10">
+                    <div id="contact-form-card" className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10">
 
                         <div className="relative z-10">
                             {submitted ? (

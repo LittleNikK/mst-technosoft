@@ -201,7 +201,7 @@ export default function About() {
             <div className="relative grid lg:grid-cols-2 min-h-[580px]">
 
                 {/* LEFT — dark half, flush to edge */}
-                <div className="relative bg-[#0d0d0d] flex flex-col justify-between px-12 lg:px-16 py-16 overflow-hidden">
+                <div className="relative bg-[#0d0d0d] flex flex-col justify-between px-6 sm:px-10 lg:px-16 py-12 lg:py-16 overflow-hidden">
 
                     {/* Red ambient light — top right bleeds toward the center seam */}
                     {/* <div className="absolute top-0 right-0 w-[380px] h-[380px] rounded-full bg-red-600 blur-[140px] opacity-20 pointer-events-none z-10" />
@@ -220,7 +220,7 @@ export default function About() {
                         <p className="body-text text-[10px] font-bold tracking-[0.2em] text-gray-600 uppercase mb-5">
                             WHO WE ARE
                         </p>
-                        <h3 className="section-heading text-[30px] md:text-[36px] font-extrabold text-white leading-[1.2] tracking-[-0.5px] max-w-[340px]">
+                        <h3 className="section-heading text-[26px] sm:text-[30px] md:text-[36px] font-extrabold text-white leading-[1.2] tracking-[-0.5px] max-w-[340px]">
                             Engineering Trust Through Blockchain Innovation.
                         </h3>
                     </div>
@@ -246,12 +246,12 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col justify-center px-12 lg:px-16 py-16 border-l border-gray-100 bg-white overflow-hidden isolate">
+                <div className="relative flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 lg:py-16 border-l border-gray-100 bg-white overflow-hidden isolate">
                     <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 opacity-65 pointer-events-none" />
 
                     <div className="relative z-20">
                         {/* Heading */}
-                        <h2 className="section-heading text-[48px] md:text-[56px] font-extrabold leading-[0.95] tracking-[-2px] mb-8">
+                        <h2 className="section-heading text-[36px] sm:text-[42px] md:text-[48px] lg:text-[56px] font-extrabold leading-[0.95] tracking-[-2px] mb-8">
                             <span className="text-black">About </span>
                             <span className="text-black">Masterstroke</span>
                             <br />
@@ -259,7 +259,7 @@ export default function About() {
                         </h2>
 
                         {/* Body */}
-                        <div className="body-text space-y-4 text-[15px] text-gray-800 leading-[1.75] max-w-[460px] mb-10">
+                        <div className="body-text space-y-4 text-[14px] sm:text-[15px] text-gray-800 leading-[1.6] sm:leading-[1.75] max-w-[100%] sm:max-w-[460px] mb-10">
                             <p>
                                 Masterstroke Technosoft Pvt. Ltd. was established with a vision to redefine how digital systems create, exchange, and protect value. Rather than building isolated software products, we focus on creating foundational technologies that enable transparent, decentralized, and scalable digital ecosystems.
                             </p>
@@ -269,7 +269,7 @@ export default function About() {
                         </div>
 
                         {/* Highlights — left-bar list */}
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
                             {highlights.map(({ title }) => (
                                 <div key={title} className="flex items-center gap-3">
                                     <div className="w-0.5 h-5 bg-red-500 shrink-0 rounded-full" />
@@ -287,11 +287,12 @@ export default function About() {
                     <div
                         key={label}
                         className={`
-              group px-10 lg:px-12 py-10 flex flex-col justify-center
-              border-r border-gray-200 last:border-r-0
+              group px-6 sm:px-10 lg:px-12 py-8 sm:py-10 flex flex-col justify-center
+              border-gray-200 
               hover:bg-red-500 transition-colors duration-200 cursor-default
-              ${i === 1 ? "border-b lg:border-b-0" : ""}
-              ${i === 0 ? "border-b lg:border-b-0" : ""}
+              ${i % 2 === 0 ? "border-r" : "border-r-0 lg:border-r"}
+              ${i < 2 ? "border-b lg:border-b-0" : ""}
+              last:border-r-0
             `}
                     >
                         <p className="section-heading text-[42px] font-extrabold text-black group-hover:text-white leading-none tracking-tight transition-colors duration-200">
